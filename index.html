@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Mikhil Khattar | Marketing Analytics & Paid Media</title>
+<meta name="description" content="Head of Marketing Analytics at Sumeru Inc. 7+ years driving revenue through data-driven paid marketing and web analytics."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#fafafa}
+::-webkit-scrollbar-thumb{background:rgba(20,35,75,.15);border-radius:2px}
+::selection{background:rgba(20,35,75,.12);color:#0f1d3d}
+html{scroll-behavior:auto}
+body{font-family:'Inter',sans-serif;background:#fafafa;color:#0f1d3d;overflow-x:hidden}
+
+/* COLORS */
+:root{--navy:#0f1d3d;--navy-light:#1a2f5a;--accent:#2b4c8c;--bg:#fafafa;--bg2:#f0f1f5;--text:#0f1d3d;--text-mid:rgba(15,29,61,.55);--text-light:rgba(15,29,61,.3);--border:rgba(15,29,61,.08)}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;z-index:9999;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.pre-circle{width:200px;height:200px}
+.pre-circle circle{fill:transparent;stroke:#fff;stroke-width:.8;transform:rotate(-90deg);transform-origin:center;opacity:0}
+.pre-text{font-size:14px;font-weight:300;letter-spacing:6px;text-transform:uppercase;opacity:0;filter:blur(8px);margin-top:24px;color:rgba(255,255,255,.7)}
+.pre-sub{font-size:11px;letter-spacing:3px;opacity:0;margin-top:10px;color:rgba(255,255,255,.35)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;background:transparent;transition:background .3s,box-shadow .3s}
+nav.scrolled{background:rgba(250,250,250,.92);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border)}
+.nav-logo{font-size:18px;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-1px}
+.nav-right{display:flex;gap:32px;align-items:center}
+.nav-right a{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:var(--text-mid);text-decoration:none;transition:color .3s;font-weight:400}
+.nav-right a:hover{color:var(--navy)}
+
+/* GLOBAL */
+.container{max-width:1100px;margin:0 auto;padding:0 48px;width:100%}
+.overline{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--text-light);margin-bottom:16px;font-weight:500}
+.divider{height:1px;background:var(--border);width:100%}
+.blur-in{opacity:0;filter:blur(12px)}
+.fade-up{opacity:0;transform:translateY(40px)}
+.fade-in{opacity:0}
+
+/* BLOB */
+.blob{position:fixed;width:500px;height:500px;border:1px solid rgba(20,35,75,.04);border-radius:40% 60% 70% 30%/40% 40% 60% 50%;top:50%;right:-100px;transform:translateY(-50%);pointer-events:none;z-index:0;opacity:.6}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 48px 100px;position:relative}
+.hero-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,15vw,200px);font-weight:900;color:rgba(15,29,61,.025);white-space:nowrap;pointer-events:none;letter-spacing:-6px}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero h1{font-size:clamp(38px,5.5vw,74px);font-weight:800;line-height:1.02;letter-spacing:-3px;margin-bottom:28px;color:var(--navy)}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:16px;color:var(--text-mid);line-height:1.8;max-width:480px;font-weight:300}
+.hero-cta{display:inline-flex;gap:16px;margin-top:32px}
+.btn{padding:14px 32px;border-radius:0;font-size:12px;font-weight:500;text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all .3s;display:inline-block}
+.btn-navy{background:var(--navy);color:#fff;border:1px solid var(--navy)}
+.btn-navy:hover{background:transparent;color:var(--navy)}
+.btn-outline{background:transparent;color:var(--navy);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--navy)}
+.scroll-line{position:absolute;bottom:40px;left:48px;display:flex;align-items:center;gap:12px}
+.scroll-line span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light)}
+.scroll-line div{width:40px;height:1px;background:var(--border)}
+
+/* SECTIONS */
+.sec{padding:100px 0;position:relative;z-index:1}
+.sec-sm{padding:70px 0;position:relative;z-index:1}
+.sec-title{font-size:clamp(28px,3.5vw,48px);font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:20px;color:var(--navy)}
+.sec-title em{font-style:normal;color:var(--text-light)}
+.body-text{font-size:15px;color:var(--text-mid);line-height:1.8;font-weight:300;max-width:540px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
+.stat{text-align:center;padding:32px 20px;background:#fff;border:1px solid var(--border)}
+.stat-num{font-size:34px;font-weight:800;letter-spacing:-2px;color:var(--navy)}
+.stat-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light);margin-top:6px}
+
+/* EXPERIENCE */
+.exp-item{padding:32px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.exp-item:first-child{border-top:1px solid var(--border)}
+.exp-role{font-size:20px;font-weight:700;letter-spacing:-.5px;color:var(--navy)}
+.exp-company{font-size:13px;color:var(--accent);margin-top:4px;font-weight:500}
+.exp-meta{font-size:11px;color:var(--text-light);font-family:'Fira Code',monospace;text-align:right}
+.exp-bullets{margin-top:12px;padding-left:0;list-style:none}
+.exp-bullets li{font-size:13px;color:var(--text-mid);line-height:1.7;padding-left:16px;position:relative;margin-bottom:4px}
+.exp-bullets li::before{content:'';width:4px;height:4px;background:var(--accent);border-radius:50%;position:absolute;left:0;top:8px}
+
+/* CASE STUDIES */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.case-card{background:#fff;border:1px solid var(--border);padding:28px 24px;transition:all .4s;position:relative;overflow:hidden}
+.case-card:hover{border-color:rgba(20,35,75,.15);box-shadow:0 8px 30px rgba(20,35,75,.06)}
+.case-card:hover .case-line{transform:scaleX(1)}
+.case-line{position:absolute;top:0;left:0;width:100%;height:2px;background:var(--navy);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.case-industry{font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);display:inline-block;margin-bottom:14px;color:var(--text-light);font-weight:500}
+.case-card h3{font-size:16px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--navy)}
+.case-card p{font-size:12.5px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+.case-result{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.5px}
+
+/* APPROACH */
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px}
+.approach-card{background:#fff;border:1px solid var(--border);padding:28px 24px;position:relative}
+.approach-num{font-size:36px;font-weight:900;color:rgba(15,29,61,.06);margin-bottom:12px;letter-spacing:-2px}
+.approach-card h3{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--navy)}
+.approach-card p{font-size:12.5px;color:var(--text-mid);line-height:1.7}
+
+/* SKILLS */
+.skill-pill{display:inline-block;padding:10px 20px;border:1px solid var(--border);font-size:12px;color:var(--text-mid);margin:0 4px 6px 0;transition:all .3s;letter-spacing:.5px;background:#fff}
+.skill-pill:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}
+
+/* TESTIMONIAL */
+.test-card{padding:32px;background:#fff;border:1px solid var(--border);margin-bottom:2px}
+.test-card blockquote{font-size:14px;color:var(--text-mid);line-height:1.8;font-style:italic;font-weight:300;margin-bottom:16px}
+.test-from{display:flex;align-items:center;gap:12px}
+.test-avatar{width:32px;height:32px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0}
+.test-name{font-size:13px;font-weight:600;color:var(--navy)}
+.test-role{font-size:11px;color:var(--text-light)}
+
+/* CTA */
+.cta-section{background:var(--navy);color:#fff;padding:80px 0;text-align:center;position:relative;z-index:1}
+.cta-section h2{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-2px;margin-bottom:16px}
+.cta-section p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:32px;font-weight:300}
+.btn-white{background:#fff;color:var(--navy);border:1px solid #fff;padding:16px 40px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-white:hover{background:transparent;color:#fff}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-link{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--text-mid);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--border);transition:all .3s}
+.contact-link:hover{color:var(--navy);padding-left:8px;border-color:rgba(15,29,61,.15)}
+.contact-link svg{flex-shrink:0;opacity:.4}
+
+/* FOOTER */
+footer{padding:32px 0;text-align:center;color:var(--text-light);font-size:11px;letter-spacing:1px;border-top:1px solid var(--border);position:relative;z-index:1}
+
+@media(max-width:768px){
+  nav{padding:18px 24px}
+  .nav-right a:not(:last-child){display:none}
+  .hero{padding:0 24px 60px}
+  .container{padding:0 24px}
+  .hero h1{font-size:32px;letter-spacing:-1.5px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .exp-item{grid-template-columns:1fr;gap:8px}
+  .exp-meta{text-align:left}
+  .case-grid{grid-template-columns:1fr}
+  .approach-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .blob{display:none}
+  .scroll-line{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <svg viewBox="0 0 200 200" class="pre-circle"><circle cx="100" cy="100" r="96" id="preCircle"/></svg>
+  <div class="pre-text" id="preText">Mikhil Khattar</div>
+  <div class="pre-sub" id="preSub">Marketing Analytics</div>
+</div>
+
+<!-- BLOB -->
+<div class="blob" id="blob"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">MK.</a>
+  <div class="nav-right">
+    <a href="#about">About</a>
+    <a href="#experience">Work</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">MIKHIL</div>
+  <div class="hero-inner">
+    <div class="overline fade-up">Head of Marketing Analytics</div>
+    <h1 class="blur-in">Data doesn't<br/>deliver value<br/><span>by itself.</span></h1>
+    <p class="fade-up">I build the systems that connect ad spend to real revenue. From tracking architecture to closed-loop attribution, I help brands stop guessing and start growing.</p>
+    <div class="hero-cta fade-up">
+      <a href="#cases" class="btn btn-navy">View Case Studies</a>
+      <a href="#contact" class="btn btn-outline">Book a Call</a>
+    </div>
+  </div>
+  <div class="scroll-line fade-in"><span>Scroll</span><div></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="container">
+    <div class="overline fade-up">(01) About</div>
+    <h2 class="sec-title blur-in">Business-driven<br/><em>analytics.</em></h2>
+    <p class="body-text fade-up" style="margin-top:20px">I'm Mikhil Khattar, Head of Marketing Analytics at Sumeru Inc. With 7+ years of experience, I specialize in building closed-loop tracking systems that connect ad platforms to real revenue. I work closely with content, design, marketing and business stakeholders to deliver value through data.</p>
+    <p class="body-text fade-up" style="margin-top:14px">From Meta CAPI and server-side tracking to cross-domain attribution and custom GTM implementations, I help brands see the full picture of their marketing performance.</p>
+    <div class="stats">
+      <div class="stat fade-up"><div class="stat-num">7+</div><div class="stat-label">Years</div></div>
+      <div class="stat fade-up"><div class="stat-num">$3M+</div><div class="stat-label">Revenue Generated</div></div>
+      <div class="stat fade-up"><div class="stat-num">$1M+</div><div class="stat-label">Ad Spend Managed</div></div>
+      <div class="stat fade-up"><div class="stat-num">8</div><div class="stat-label">Case Studies</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- APPROACH -->
+<section class="sec-sm" id="approach">
+  <div class="container">
+    <div class="overline fade-up">(02) Approach</div>
+    <h2 class="sec-title blur-in">How I work.</h2>
+    <div class="approach-grid">
+      <div class="approach-card fade-up"><div class="approach-num">01</div><h3>Audit & Diagnose</h3><p>Full tracking and attribution audit to identify where data breaks, platforms misattribute, and revenue gets lost.</p></div>
+      <div class="approach-card fade-up"><div class="approach-num">02</div><h3>Architect & Build</h3><p>Custom GTM, GA4, Meta CAPI, server-side tracking. I rebuild your measurement layer from the ground up.</p></div>
+      <div class="approach-card fade-up"><div class="approach-num">03</div><h3>Optimize & Scale</h3><p>With clean data flowing, campaigns optimize for real buyers. Revenue goes up, wasted spend goes down.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+  <div class="container">
+    <div class="overline fade-up">(03) Experience</div>
+    <h2 class="sec-title blur-in">Career<br/><em>trajectory.</em></h2>
+    <div style="margin-top:40px">
+      <div class="exp-item fade-up">
+        <div><div class="exp-role">Head of Digital Marketing & Analytics</div><div class="exp-company">Sumeru Inc</div>
+        <ul class="exp-bullets"><li>Managed data collection strategies across GA4, GTM, Server-Side Tracking, Meta CAPI, TikTok Pixel on Shopify, WordPress, React.js</li><li>Supervised team of 5 Junior Analysts, training them on GTM implementation and Looker Studio/Tableau</li><li>Implemented 1st party cookies resulting in 50% better attribution, increasing revenue by 22% in Q1 2024</li><li>Built dashboards in Looker Studio and Tableau for stakeholder forecasting and performance reporting</li></ul></div>
+        <div class="exp-meta">Jul 2020 - Present<br/>Remote / LA</div>
+      </div>
+      <div class="exp-item fade-up">
+        <div><div class="exp-role">Sr. Paid Marketing Specialist & Team Lead</div><div class="exp-company">Sumeru Inc</div>
+        <ul class="exp-bullets"><li>Created strategies for Meta and Google campaigns for The Art of Living across US, India, Switzerland, Canada, Germany, Australia</li><li>Spent over $1M in 2021 generating $3M+ in revenue</li></ul></div>
+        <div class="exp-meta">Jan 2020 - Jun 2020<br/>New Delhi</div>
+      </div>
+      <div class="exp-item fade-up">
+        <div><div class="exp-role">Digital Marketing Manager</div><div class="exp-company">Tulas International School / Tula's Institute</div>
+        <ul class="exp-bullets"><li>Generated 3,500+ leads vs average 1,000 leads in previous 4 years</li><li>Reduced cost per conversion from Rs 1,200 to Rs 350</li><li>Oversaw team of 6 people</li></ul></div>
+        <div class="exp-meta">May 2018 - Apr 2019<br/>Gurugram</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- CASE STUDIES -->
+<section class="sec" id="cases">
+  <div class="container">
+    <div class="overline fade-up">(04) Case Studies</div>
+    <h2 class="sec-title blur-in">Proven<br/><em>results.</em></h2>
+    <p class="body-text fade-up" style="margin-bottom:32px">Real projects where I fixed broken tracking, rebuilt attribution, and connected ad spend to actual revenue.</p>
+    <div class="case-grid">
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">E-Commerce / Health</div>
+        <h3>Nature's Energy</h3>
+        <p>Rebuilt tracking system and connected CRM to ad platforms via Meta Conversions API. Meta started optimizing for actual buyers instead of form fills.</p>
+        <div class="case-result">Lead quality improved, CPA dropped</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">Beauty / DTC</div>
+        <h3>PMD Beauty</h3>
+        <p>Enhanced tracking accuracy across Shopify checkout. Fixed broken purchase tracking after Checkout Extensibility updates and aligned all ad platforms.</p>
+        <div class="case-result">92.13% tracking accuracy achieved</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">E-Commerce / Fashion</div>
+        <h3>Soft Star Shoes</h3>
+        <p>Implemented custom event tracking to distinguish new vs returning customers. Shifted optimization from Purchase to First-Time Purchase.</p>
+        <div class="case-result">Stronger long-term revenue growth</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">Health / Vapes</div>
+        <h3>Nectar Medical Vapes</h3>
+        <p>Fixed UTM flow across the entire funnel. Restored accurate source tracking and aligned GA4, GTM and Meta CAPI events.</p>
+        <div class="case-result">All platforms telling the same story</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">Fashion / E-Commerce</div>
+        <h3>Gear Supply</h3>
+        <p>Connected Meta attribution to real Shopify revenue. Stopped Meta from inflating numbers and enabled revenue-driven campaign decisions.</p>
+        <div class="case-result">Revenue-driven optimization enabled</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">Travel / Content</div>
+        <h3>BehindTheChair.com</h3>
+        <p>Built custom cross-domain tracking using GTM + JavaScript + cookies. Tracked full user journey from content to purchase across domains.</p>
+        <div class="case-result">Content became measurable, not just creative</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">Agency / SaaS</div>
+        <h3>ThinkLouder: Dashboard</h3>
+        <p>Built comprehensive reporting dashboards connecting multiple marketing channels to business KPIs for stakeholder forecasting.</p>
+        <div class="case-result">Actionable insights for decision-making</div>
+      </div>
+      <div class="case-card fade-up"><div class="case-line"></div>
+        <div class="case-industry">Agency / SaaS</div>
+        <h3>ThinkLouder: Data Analysis</h3>
+        <p>Deep data analysis connecting marketing performance to revenue outcomes. Identified hidden attribution problems across ad platforms.</p>
+        <div class="case-result">Data-driven marketing decisions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="blur-in">Stop guessing.<br/>Start growing.</h2>
+    <p class="fade-up">If your ad platforms don't match your backend, your attribution is broken. Let's fix it.</p>
+    <a href="https://lnkd.in/gkYqJuRr" target="_blank" class="btn-white fade-up">Book a Free Consultation</a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec-sm" id="skills">
+  <div class="container">
+    <div class="overline fade-up">(05) Toolkit</div>
+    <h2 class="sec-title blur-in">Expertise.</h2>
+    <div style="margin-top:28px" class="fade-up">
+      <span class="skill-pill">Google Analytics 4</span><span class="skill-pill">Google Tag Manager</span><span class="skill-pill">Server-Side Tracking</span><span class="skill-pill">Meta CAPI</span><span class="skill-pill">Facebook Ads</span><span class="skill-pill">Google Ads</span><span class="skill-pill">TikTok Pixel</span><span class="skill-pill">Looker Studio</span><span class="skill-pill">Tableau</span><span class="skill-pill">Shopify / Shopify Plus</span><span class="skill-pill">GoHighLevel</span><span class="skill-pill">Matomo</span><span class="skill-pill">Attribution Modeling</span><span class="skill-pill">Cross-Domain Tracking</span><span class="skill-pill">Data Visualization</span><span class="skill-pill">Conversion Rate Optimization</span><span class="skill-pill">Performance Marketing</span><span class="skill-pill">Zapier / Webhooks</span><span class="skill-pill">WordPress</span><span class="skill-pill">React.js Tracking</span>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- TESTIMONIAL -->
+<section class="sec-sm">
+  <div class="container">
+    <div class="overline fade-up">(06) Testimonial</div>
+    <div class="test-card fade-up">
+      <blockquote>I have worked with Mikhil for about three years. Mikhil is a very experienced expert in Social Media Ads, Google Grants and Google Ads. He never stops learning. Mikhil is very involved in each project, suggests new ideas and always looks for ways to improve the results.</blockquote>
+      <div class="test-from"><div class="test-avatar">M</div><div><div class="test-name">Maria Lapushkina</div><div class="test-role">Former Manager at Sumeru Inc</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="overline fade-up">(07) Contact</div>
+        <h2 class="sec-title blur-in">Let's connect.</h2>
+        <p class="body-text fade-up" style="margin-top:16px">Whether you need a tracking audit, attribution fix, or a full measurement rebuild, I'd love to talk.</p>
+      </div>
+      <div class="fade-up" style="display:flex;flex-direction:column;gap:12px">
+        <a href="https://lnkd.in/gkYqJuRr" target="_blank" class="contact-link">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Book a Free Consultation
+        </a>
+        <a href="https://www.linkedin.com/in/mikhil-khattar/" target="_blank" class="contact-link">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn Profile
+        </a>
+        <a href="https://mikhil.co.in/" target="_blank" class="contact-link">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+          mikhil.co.in
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">Mikhil Khattar © 2026. Marketing Analytics & Paid Media.</div></footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// PRELOADER
+(function(){
+  var circle=document.getElementById('preCircle');
+  var r=96,circ=2*Math.PI*r;
+  circle.style.strokeDasharray=circ;
+  circle.style.strokeDashoffset=circ;
+  var tl=gsap.timeline();
+  tl.set(circle,{opacity:1})
+    .to(circle,{strokeDashoffset:0,duration:2.5,ease:'power2.inOut'},0)
+    .fromTo('.pre-circle',{rotation:0},{rotation:720,duration:2.5,ease:'power2.inOut'},0)
+    .to('#preText',{opacity:1,filter:'blur(0px)',duration:1.5,ease:'power2.out'},1)
+    .to('#preSub',{opacity:1,duration:1},1.5)
+    .to(['.pre-circle','#preText','#preSub'],{opacity:0,duration:0.6},'+=0.5')
+    .to('#preloader',{opacity:0,duration:0.5,onComplete:function(){
+      document.getElementById('preloader').style.display='none';
+      animateHero();
+    }},'+=0.1');
+})();
+
+function animateHero(){
+  gsap.to('.hero .blur-in',{opacity:1,filter:'blur(0px)',duration:1.2,ease:'power2.out'});
+  gsap.to('.hero .fade-up',{opacity:1,y:0,duration:1,stagger:0.15,delay:0.3,ease:'power2.out'});
+  gsap.to('.hero .fade-in',{opacity:1,duration:1.5,delay:0.8});
+}
+
+// SCROLL REVEALS
+ScrollTrigger.batch('.blur-in:not(.hero .blur-in)',{
+  onEnter:function(batch){gsap.to(batch,{opacity:1,filter:'blur(0px)',duration:1,stagger:0.1,ease:'power2.out'});},
+  start:'top 85%',once:true
+});
+ScrollTrigger.batch('.fade-up:not(.hero .fade-up)',{
+  onEnter:function(batch){gsap.to(batch,{opacity:1,y:0,duration:0.8,stagger:0.08,ease:'power2.out'});},
+  start:'top 88%',once:true
+});
+ScrollTrigger.batch('.fade-in:not(.hero .fade-in)',{
+  onEnter:function(batch){gsap.to(batch,{opacity:1,duration:1,stagger:0.1});},
+  start:'top 85%',once:true
+});
+
+// PARALLAX
+gsap.to('.hero-bg',{y:-150,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
+
+// BLOB
+(function(){
+  var blob=document.getElementById('blob');
+  if(!blob)return;
+  function rnd(){return gsap.utils.random(35,75)+'%';}
+  function morphBlob(){
+    var br=rnd()+' '+rnd()+' '+rnd()+' '+rnd()+' / '+rnd()+' '+rnd()+' '+rnd()+' '+rnd();
+    gsap.to(blob,{borderRadius:br,duration:8,ease:'power1.inOut',onComplete:morphBlob});
+  }
+  morphBlob();
+  gsap.to(blob,{rotation:360,duration:30,ease:'none',repeat:-1});
+  window.addEventListener('scroll',function(){
+    blob.style.transform='translateY(calc(-50% + '+window.scrollY*0.05+'px))';
+  },{passive:true});
+})();
+
+// NAV SCROLL
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('navbar');
+  if(window.scrollY>80){nav.classList.add('scrolled');}
+  else{nav.classList.remove('scrolled');}
+},{passive:true});
+</script>
+</body>
+</html>
