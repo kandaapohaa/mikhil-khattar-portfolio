@@ -4,19 +4,18 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Mikhil Khattar | Marketing Analytics</title>
-<meta name="description" content="Head of Marketing Analytics. 7+ years driving revenue through data-driven paid marketing and web analytics."/>
+<meta name="description" content="Head of Marketing Analytics. 10+ years building tracking systems that connect ad spend to real revenue. GA4, GTM, Looker Studio."/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&family=Fira+Code:wght@400&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-::-webkit-scrollbar{width:0px}
+::-webkit-scrollbar{width:0}
 ::selection{background:#1a2744;color:#fff}
 html{scroll-behavior:auto}
 body{font-family:'DM Sans',sans-serif;background:#fcfcfc;color:#1a1a2e;overflow-x:hidden}
 h1,h2,h3,.serif{font-family:'DM Serif Display',serif;font-weight:400}
-
-:root{--navy:#1a2744;--blue:#2d4a7a;--sky:#4a7cc9;--bg:#fcfcfc;--bg2:#f4f5f8;--text:#1a1a2e;--mid:rgba(26,26,46,.5);--light:rgba(26,26,46,.25);--border:rgba(26,39,68,.08)}
+:root{--navy:#1a2744;--blue:#2d4a7a;--sky:#4a7cc9;--bg:#fcfcfc;--bg2:#f4f5f8;--text:#1a1a2e;--mid:rgba(26,26,46,.55);--light:rgba(26,26,46,.25);--border:rgba(26,39,68,.08)}
 
 /* PRELOADER */
 .preloader{position:fixed;inset:0;z-index:9999;background:var(--navy);display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -37,14 +36,14 @@ nav.scrolled{background:rgba(252,252,252,.95);backdrop-filter:blur(20px);box-sha
 
 .container{max-width:1200px;margin:0 auto;padding:0 48px;width:100%}
 .overline{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--light);font-weight:500}
-.r{opacity:0;transform:translateY(30px)}
+.r{opacity:0;transform:translateY(25px)}
 
 /* MARQUEE */
 .marquee-wrap{overflow:hidden;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2)}
-.marquee{display:flex;gap:48px;animation:scroll 25s linear infinite;width:max-content}
-.marquee span{font-size:13px;color:var(--mid);white-space:nowrap;letter-spacing:1px;display:flex;align-items:center;gap:8px}
-.marquee span::before{content:'';width:5px;height:5px;background:var(--sky);border-radius:50%;flex-shrink:0}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee{display:flex;gap:48px;animation:mqScroll 30s linear infinite;width:max-content;opacity:.12}
+.marquee span{font-size:13px;color:#000;white-space:nowrap;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.marquee span::before{content:'';width:4px;height:4px;background:var(--sky);border-radius:50%;flex-shrink:0}
+@keyframes mqScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden}
@@ -57,8 +56,8 @@ nav.scrolled{background:rgba(252,252,252,.95);backdrop-filter:blur(20px);box-sha
 .hero-stat-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:4px}
 .hero h1{font-size:clamp(36px,4.5vw,62px);line-height:1.1;letter-spacing:-1px;color:var(--navy);margin-bottom:20px}
 .hero h1 em{font-style:italic;color:var(--sky)}
-.hero-desc{font-size:15px;color:var(--mid);line-height:1.8;max-width:420px;margin-bottom:32px}
-.hero-btns{display:flex;gap:12px}
+.hero-desc{font-size:15px;color:var(--mid);line-height:1.8;max-width:440px;margin-bottom:32px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{padding:14px 28px;font-size:11px;font-weight:500;text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all .3s;font-family:'DM Sans',sans-serif;display:inline-block}
 .btn-fill{background:var(--navy);color:#fff;border:1px solid var(--navy)}
 .btn-fill:hover{background:transparent;color:var(--navy)}
@@ -73,8 +72,9 @@ nav.scrolled{background:rgba(252,252,252,.95);backdrop-filter:blur(20px);box-sha
 .sec-dark .overline{color:rgba(255,255,255,.25)}
 .sec-dark .sec-h{color:#fff}
 .sec-dark .mid{color:rgba(255,255,255,.5)}
-.sec-h{font-size:clamp(32px,4vw,52px);letter-spacing:-1px;line-height:1.1;color:var(--navy);margin-top:12px;margin-bottom:24px}
-.mid{color:var(--mid);font-size:15px;line-height:1.8;max-width:540px}
+.sec-h{font-size:clamp(28px,3.5vw,48px);letter-spacing:-1px;line-height:1.15;color:var(--navy);margin-top:12px;margin-bottom:24px}
+.mid{color:var(--mid);font-size:15px;line-height:1.8;max-width:580px}
+.highlight{color:var(--navy);font-weight:600}
 
 /* APPROACH */
 .approach-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border:1px solid var(--border);overflow:hidden}
@@ -83,9 +83,11 @@ nav.scrolled{background:rgba(252,252,252,.95);backdrop-filter:blur(20px);box-sha
 .approach-item:hover{background:var(--bg2)}
 .approach-step{font-family:'DM Serif Display',serif;font-size:48px;color:rgba(26,39,68,.06);margin-bottom:16px}
 .approach-item h3{font-size:18px;margin-bottom:10px;color:var(--navy)}
-.approach-item p{font-size:13px;color:var(--mid);line-height:1.7}
+.approach-item p{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:12px}
+.approach-detail{font-size:11px;color:var(--light);line-height:1.6;padding-top:12px;border-top:1px solid var(--border)}
+.approach-detail strong{color:var(--mid)}
 
-/* EXPERIENCE */
+/* EXPERIENCE TIMELINE */
 .exp-timeline{margin-top:48px;position:relative;padding-left:32px;border-left:1px solid var(--border)}
 .exp-dot{width:10px;height:10px;border:2px solid var(--sky);background:var(--bg);border-radius:50%;position:absolute;left:-5px}
 .exp-entry{padding:0 0 48px 24px;position:relative}
@@ -107,26 +109,29 @@ nav.scrolled{background:rgba(252,252,252,.95);backdrop-filter:blur(20px);box-sha
 .case-item:hover h3{color:#fff}
 .case-item:hover .case-tag{border-color:rgba(255,255,255,.15)}
 .case-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border:1px solid var(--border);color:var(--light);display:inline-block;margin-bottom:14px;transition:all .4s}
-.case-item h3{font-size:17px;margin-bottom:8px;color:var(--navy);transition:color .4s}
+.case-item h3{font-size:16px;margin-bottom:8px;color:var(--navy);transition:color .4s;font-family:'DM Sans',sans-serif;font-weight:700}
 .case-item p{font-size:12px;color:var(--mid);line-height:1.7;margin-bottom:12px;transition:color .4s}
 .case-result{font-size:11px;color:var(--sky);font-weight:600;letter-spacing:.3px;transition:color .4s}
 
-/* SKILLS */
-.skills-wrap{display:flex;flex-wrap:wrap;gap:0;margin-top:32px;border:1px solid rgba(255,255,255,.08);overflow:hidden}
-.skill-item{padding:14px 24px;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);font-size:13px;color:rgba(255,255,255,.5);transition:all .3s}
-.skill-item:hover{background:rgba(255,255,255,.05);color:#fff}
-
-/* TESTIMONIAL */
-.testi-wrap{margin-top:40px;display:grid;grid-template-columns:3px 1fr;gap:32px}
+/* TESTIMONIALS */
+.testi-wrap{margin-top:20px;display:grid;grid-template-columns:3px 1fr;gap:32px;margin-bottom:24px}
 .testi-line{background:var(--sky);border-radius:2px}
-.testi-wrap blockquote{font-size:18px;color:var(--mid);line-height:1.8;font-style:italic;margin-bottom:20px}
+.testi-wrap blockquote{font-size:16px;color:var(--mid);line-height:1.8;font-style:italic;margin-bottom:16px}
 .testi-name{font-size:14px;font-weight:600;color:var(--navy)}
 .testi-role{font-size:12px;color:var(--light)}
+
+/* SKILLS */
+.skills-cats{margin-top:32px}
+.skills-cat{margin-bottom:24px}
+.skills-cat-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;font-weight:500}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:0;border:1px solid rgba(255,255,255,.08);overflow:hidden}
+.skill-item{padding:12px 20px;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);font-size:13px;color:rgba(255,255,255,.5);transition:all .3s}
+.skill-item:hover{background:rgba(255,255,255,.05);color:#fff}
 
 /* CTA */
 .cta-banner{background:var(--navy);padding:80px 48px;text-align:center;position:relative;overflow:hidden}
 .cta-banner h2{font-size:clamp(28px,4vw,48px);color:#fff;margin-bottom:14px}
-.cta-banner p{font-size:15px;color:rgba(255,255,255,.45);margin-bottom:36px}
+.cta-banner p{font-size:15px;color:rgba(255,255,255,.45);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
 .btn-white{background:#fff;color:var(--navy);padding:16px 40px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block;font-family:'DM Sans',sans-serif}
 .btn-white:hover{background:transparent;color:#fff;outline:1px solid #fff}
 
@@ -138,7 +143,6 @@ nav.scrolled{background:rgba(252,252,252,.95);backdrop-filter:blur(20px);box-sha
 .c-link:hover{color:var(--navy);padding-left:6px}
 .c-link svg{flex-shrink:0;opacity:.35}
 
-/* FOOTER */
 footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--light);border-top:1px solid var(--border)}
 
 @media(max-width:900px){
@@ -158,6 +162,8 @@ footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:
   .contact-split{grid-template-columns:1fr}
   .exp-timeline{padding-left:24px}
   footer{flex-direction:column;gap:8px;text-align:center;padding:28px 24px}
+  .sec{padding:70px 0}
+  .sec-sm{padding:50px 0}
 }
 </style>
 </head>
@@ -177,94 +183,127 @@ footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:
   <a href="#" class="nav-logo">Mikhil Khattar</a>
   <div class="nav-right">
     <a href="#about">About</a>
-    <a href="#work">Experience</a>
-    <a href="#cases">Cases</a>
-    <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="nav-cta">Book a Call</a>
+    <a href="#work">How I Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="nav-cta">Book a Free Audit</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-left">
-    <div class="overline r">Head of Marketing Analytics</div>
+    <div class="overline r">Head of Marketing Analytics | 10+ Years</div>
     <h1 class="r">Data doesn't deliver value <em>by itself.</em></h1>
-    <p class="hero-desc r">I build custom GA4 implementations, GTM tracking architectures, and Looker Studio dashboards that connect your ad spend to real revenue. If your platforms don't match your backend, I fix that.</p>
+    <p class="hero-desc r">I build tracking systems that tell the truth. GA4, GTM, server-side tracking, and custom Looker Studio dashboards that connect every click to every dollar. When your ad platforms don't match your backend, I'm the one who fixes it.</p>
     <div class="hero-btns r">
-      <a href="#cases" class="btn btn-fill">See Results</a>
-      <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="btn btn-ghost">Free Analytics Audit</a>
+      <a href="#cases" class="btn btn-fill">See How I Fix It</a>
+      <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="btn btn-ghost">Free 30mins Consultation</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-right-text">MK</div>
     <div class="hero-right-grid r">
-      <div class="hero-stat"><div class="hero-stat-num" data-count="7">0</div><div class="hero-stat-label">Years</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">$3M+</div><div class="hero-stat-label">Revenue</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">4.8★</div><div class="hero-stat-label">Upwork</div></div>
-      <div class="hero-stat"><div class="hero-stat-num" data-count="8">0</div><div class="hero-stat-label">Case Studies</div></div>
+      <div class="hero-stat"><div class="hero-stat-num" data-count="10">0</div><div class="hero-stat-label">Years</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">40,000+</div><div class="hero-stat-label">Hours on Tracking</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4.4&#9733;</div><div class="hero-stat-label">Upwork (100% Success)</div></div>
+      <div class="hero-stat"><div class="hero-stat-num" data-count="30">0</div><div class="hero-stat-label">Case Studies</div></div>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee" id="marquee">
-    <span>Google Analytics 4</span><span>Google Tag Manager</span><span>Server-Side Tracking</span><span>Meta CAPI</span><span>Facebook Ads</span><span>Google Ads</span><span>Shopify Plus</span><span>Looker Studio</span><span>Tableau</span><span>Attribution Modeling</span><span>Cross-Domain Tracking</span><span>GoHighLevel</span>
-    <span>Google Analytics 4</span><span>Google Tag Manager</span><span>Server-Side Tracking</span><span>Meta CAPI</span><span>Facebook Ads</span><span>Google Ads</span><span>Shopify Plus</span><span>Looker Studio</span><span>Tableau</span><span>Attribution Modeling</span><span>Cross-Domain Tracking</span><span>GoHighLevel</span>
-  </div>
-</div>
+<div class="marquee-wrap"><div class="marquee"><span>GA4</span><span>Google Tag Manager</span><span>Server-Side Tracking</span><span>Meta CAPI</span><span>Offline Conversion Tracking</span><span>Looker Studio</span><span>Tableau</span><span>Shopify</span><span>Data Automation</span><span>Zapier</span><span>Make.com</span><span>n8n</span><span>Zoho Automation</span><span>Google Apps Scripts</span><span>Attribution Modeling</span><span>Cross-Domain Tracking</span><span>GA4</span><span>Google Tag Manager</span><span>Server-Side Tracking</span><span>Meta CAPI</span><span>Offline Conversion Tracking</span><span>Looker Studio</span><span>Tableau</span><span>Shopify</span><span>Data Automation</span><span>Zapier</span><span>Make.com</span><span>n8n</span><span>Zoho Automation</span><span>Google Apps Scripts</span><span>Attribution Modeling</span><span>Cross-Domain Tracking</span></div></div>
 
 <!-- ABOUT -->
 <section class="sec" id="about">
   <div class="container">
     <div class="overline r">(01) About</div>
-    <h2 class="sec-h r">Business-driven analytics.</h2>
-    <p class="mid r">I'm Mikhil Khattar, Head of Marketing Analytics at Sumeru Inc with 7+ years of experience. I work at the intersection of paid marketing and web analytics, helping brands see the full picture of their marketing performance. From Meta CAPI and server-side tracking to cross-domain attribution, I turn chaotic data into clarity.</p>
-    <p class="mid r" style="margin-top:14px">I work closely with content, design, marketing and business stakeholders to deliver value through data. Because data alone doesn't move the needle. The right interpretation does.</p>
+    <h2 class="sec-h r">85% of marketing teams can't do qualitative analysis of their web data. I'm here for the other 15%. <em>And the 85% who want to get there.</em></h2>
+    <p class="mid r">I'm Mikhil Khattar. For over a decade, I've been in the trenches of paid marketing and web analytics, helping brands stop bleeding money on broken tracking and start making decisions based on data they can actually trust.</p>
+    <p class="mid r" style="margin-top:14px">I don't just set up GA4 and hand you a dashboard. I build closed-loop systems where every ad click, every form fill, every purchase is traced back to its source. When Meta takes credit for conversions it didn't drive, I catch it. When your CRM and ad platforms aren't talking to each other, I connect them.</p>
+    <p class="mid r" style="margin-top:14px">I've spent <span class="highlight">40,000+ hours</span> on tracking implementations alone. Not because I had to. Because broken data is the most expensive problem most brands don't know they have.</p>
+    <p class="mid r" style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border)"><span class="highlight">What makes me different:</span> I work at the intersection of marketing and engineering. Most marketers can't read a dataLayer. Most engineers don't understand attribution. I speak both languages fluently.</p>
   </div>
 </section>
 
-<!-- APPROACH -->
-<section class="sec-sm sec-alt">
+<!-- HOW I WORK -->
+<section class="sec-sm sec-alt" id="work">
   <div class="container">
     <div class="overline r">(02) How I Work</div>
-    <h2 class="sec-h r">Three phases to <em>clarity.</em></h2>
+    <h2 class="sec-h r">Three phases. <em>Zero guesswork.</em></h2>
     <div class="approach-row">
-      <div class="approach-item r"><div class="approach-step">01</div><h3>Audit & Diagnose</h3><p>Full tracking and attribution audit. I find where data breaks, where platforms misattribute, and where revenue gets lost in translation.</p></div>
-      <div class="approach-item r"><div class="approach-step">02</div><h3>Architect & Build</h3><p>Custom GTM, GA4, Meta CAPI, server-side tracking. I rebuild your entire measurement layer from scratch with clean, reliable data.</p></div>
-      <div class="approach-item r"><div class="approach-step">03</div><h3>Optimize & Scale</h3><p>With accurate data flowing, your campaigns optimize for real buyers. Revenue climbs. Wasted spend drops. Decisions become clear.</p></div>
+      <div class="approach-item r">
+        <div class="approach-step">01</div>
+        <h3>Find the Leak</h3>
+        <p>Your Meta says one thing. Shopify says another. GA4 tells a third story. I run a full tracking and attribution audit to find exactly where your data breaks, where platforms steal credit, and where revenue disappears between systems.</p>
+        <div class="approach-detail"><strong>What I look for:</strong> Broken purchase events, duplicate conversions, missing UTM parameters, misconfigured CAPI, checkout tracking gaps, new vs returning customer blindspots.</div>
+      </div>
+      <div class="approach-item r">
+        <div class="approach-step">02</div>
+        <h3>Rebuild the Foundation</h3>
+        <p>I don't patch. I rebuild. Custom GTM containers, server-side tracking, Meta CAPI with real customer data, GA4 event architecture, cross-domain tracking, offline conversion pipelines. Every data point flows where it should, clean and accurate.</p>
+        <div class="approach-detail"><strong>What I build:</strong> GTM (Web + Server), GA4 custom events, Meta Conversions API, first-party cookie systems, CRM-to-ad-platform bridges, automated data pipelines via Zapier, n8n, and Google Apps Scripts.</div>
+      </div>
+      <div class="approach-item r">
+        <div class="approach-step">03</div>
+        <h3>Watch the Numbers Change</h3>
+        <p>With clean data flowing, everything shifts. Meta stops optimizing for repeat buyers. Your cost per acquisition drops. Your dashboards finally match your backend. Campaigns start targeting the people who actually spend money.</p>
+        <div class="approach-detail"><strong>Real results:</strong> 50% better attribution from first-party cookies. 22% revenue increase in one quarter. 92.13% tracking accuracy on Shopify. Platforms aligned within 15% of each other.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section class="sec" id="work">
+<section class="sec" id="experience">
   <div class="container">
-    <div class="overline r">(03) Experience</div>
-    <h2 class="sec-h r">Career trajectory.</h2>
+    <div class="overline r">(03) A Decade in the Data</div>
+    <h2 class="sec-h r">From running $1M+ campaigns to building the systems that measure them.</h2>
     <div class="exp-timeline">
       <div class="exp-entry r"><div class="exp-dot"></div>
         <div class="exp-date">Jul 2020 - Present</div>
         <div class="exp-role">Head of Digital Marketing & Analytics</div>
         <div class="exp-co">Sumeru Inc</div>
-        <ul class="exp-bullets"><li>Managed data collection across GA4, GTM, Server-Side Tracking, Meta CAPI, TikTok Pixel on Shopify, WordPress, React.js</li><li>Supervised 5 Junior Analysts, training on GTM and Looker Studio/Tableau</li><li>1st party cookies: 50% better attribution, 22% revenue increase Q1 2024</li></ul>
+        <ul class="exp-bullets">
+          <li>Built tracking architectures across GA4, GTM, Server-Side, Meta CAPI, TikTok Pixel on Shopify, WordPress, React.js, and custom platforms</li>
+          <li>Implemented first-party cookie strategy that delivered 50% better attribution and a 22% revenue jump in Q1 2024</li>
+          <li>Supervised 5 analysts, training them from zero to independently managing GTM and Looker Studio for client accounts</li>
+          <li>Built dashboards that stakeholders actually use, not just look at, for forecasting and quarterly performance reviews</li>
+          <li>Connected CRM systems (GoHighLevel, Zoho) to ad platforms via webhooks, Zapier, and custom CAPI integrations</li>
+        </ul>
       </div>
       <div class="exp-entry r"><div class="exp-dot"></div>
         <div class="exp-date">Jan 2020 - Jun 2020</div>
-        <div class="exp-role">Sr. Paid Marketing Specialist</div>
+        <div class="exp-role">Sr. Paid Marketing Specialist & Team Lead</div>
         <div class="exp-co">Sumeru Inc</div>
-        <ul class="exp-bullets"><li>Campaigns for The Art of Living across 6+ countries</li><li>$1M+ ad spend in 2021 generating $3M+ in revenue</li></ul>
+        <ul class="exp-bullets">
+          <li>Ran Meta and Google campaigns for The Art of Living across 6+ countries (US, India, Switzerland, Canada, Germany, Australia)</li>
+          <li>Managed $1M+ in annual ad spend, generating $3M+ in revenue</li>
+          <li>Built weekly and monthly reporting systems that clients actually understood</li>
+        </ul>
       </div>
       <div class="exp-entry r"><div class="exp-dot"></div>
         <div class="exp-date">May 2018 - Apr 2019</div>
         <div class="exp-role">Digital Marketing Manager</div>
-        <div class="exp-co">Tulas International School</div>
-        <ul class="exp-bullets"><li>3,500+ leads vs previous average of 1,000</li><li>Cost per conversion: Rs 1,200 down to Rs 350</li><li>Managed team of 6</li></ul>
+        <div class="exp-co">Tulas International School / Tula's Institute</div>
+        <ul class="exp-bullets">
+          <li>Generated 3,500+ leads vs the 1,000 average from the previous 4 years</li>
+          <li>Slashed cost per conversion from Rs 1,200 to Rs 350 (71% reduction)</li>
+          <li>Managed a team of 6 across Google, Facebook, and email campaigns</li>
+        </ul>
       </div>
       <div class="exp-entry r"><div class="exp-dot"></div>
-        <div class="exp-date">Jan 2017 - May 2018</div>
+        <div class="exp-date">Jan 2016 - May 2018</div>
         <div class="exp-role">Digital Marketing Consultant</div>
         <div class="exp-co">The Art of Living</div>
-        <ul class="exp-bullets"><li>On-page SEO, content strategy, social media marketing</li><li>Competition analysis and internal link building</li></ul>
+        <ul class="exp-bullets">
+          <li>First deep dive into digital marketing, SEO, and social media strategy</li>
+          <li>Built the analytical foundation that led to everything that followed</li>
+          <li>Competition analysis, on-page optimization, content strategy</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -273,58 +312,62 @@ footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:
 <!-- CASE STUDIES -->
 <section class="sec sec-alt" id="cases">
   <div class="container">
-    <div class="overline r">(04) Case Studies</div>
-    <h2 class="sec-h r">Proven results.</h2>
-    <p class="mid r" style="margin-bottom:8px">Real projects. Broken tracking fixed. Revenue recovered.</p>
+    <div class="overline r">(04) The Proof</div>
+    <h2 class="sec-h r">I don't show mock dashboards. I show what happens when tracking <em>actually works.</em></h2>
+    <p class="mid r" style="margin-bottom:8px">30+ projects. Every one started with broken data and ended with clarity.</p>
     <div class="cases-grid">
-      <div class="case-item r"><div class="case-tag">E-Commerce</div><h3>Nature's Energy</h3><p>Connected CRM to ad platforms via Meta CAPI. Built closed-loop attribution system.</p><div class="case-result">CPA dropped, lead quality improved</div></div>
-      <div class="case-item r"><div class="case-tag">Beauty / DTC</div><h3>PMD Beauty</h3><p>Fixed purchase tracking after Shopify Checkout Extensibility updates.</p><div class="case-result">92.13% tracking accuracy</div></div>
-      <div class="case-item r"><div class="case-tag">Fashion</div><h3>Soft Star Shoes</h3><p>Custom new vs returning customer tracking. Shifted to First-Time Purchase optimization.</p><div class="case-result">Stronger long-term growth</div></div>
-      <div class="case-item r"><div class="case-tag">Health</div><h3>Nectar Medical</h3><p>Fixed UTM flow across entire funnel. Aligned GA4, GTM and Meta CAPI events.</p><div class="case-result">All platforms aligned</div></div>
-      <div class="case-item r"><div class="case-tag">E-Commerce</div><h3>Gear Supply</h3><p>Connected Meta attribution to actual Shopify revenue. Revenue-driven decisions.</p><div class="case-result">Stopped inflated reporting</div></div>
-      <div class="case-item r"><div class="case-tag">Content / Travel</div><h3>BehindTheChair</h3><p>Cross-domain tracking with GTM + JS + cookies. Full user journey mapped.</p><div class="case-result">Content became measurable</div></div>
-      <div class="case-item r"><div class="case-tag">SaaS</div><h3>ThinkLouder</h3><p>Comprehensive dashboards connecting marketing channels to business KPIs.</p><div class="case-result">Actionable stakeholder insights</div></div>
-      <div class="case-item r"><div class="case-tag">SaaS</div><h3>ThinkLouder</h3><p>Deep data analysis connecting marketing to revenue. Identified hidden attribution gaps.</p><div class="case-result">Data-driven decisions</div></div>
+      <div class="case-item r"><div class="case-tag">Closed-Loop Attribution</div><h3>Nature's Energy</h3><p>Meta was scaling on the wrong signals. Leads were up, revenue wasn't. I built a closed-loop system connecting GoHighLevel CRM to Meta CAPI. Meta started optimizing for actual buyers.</p><div class="case-result">Lead quality up, CPA down, revenue-driven decisions</div></div>
+      <div class="case-item r"><div class="case-tag">Shopify Checkout Fix</div><h3>PMD Beauty</h3><p>Shopify's Checkout Extensibility update broke their purchase tracking overnight. Meta and Google conversions stopped matching actual sales. I rebuilt everything from GTM.</p><div class="case-result">92.13% tracking accuracy achieved</div></div>
+      <div class="case-item r"><div class="case-tag">New vs Returning</div><h3>Soft Star Shoes</h3><p>Nearly 50% of their conversions were from repeat customers. Meta was burning ad spend re-converting people who would've bought anyway. I separated new from returning and shifted optimization.</p><div class="case-result">Stronger new customer acquisition, better long-term growth</div></div>
+      <div class="case-item r"><div class="case-tag">Attribution Alignment</div><h3>Nectar Medical Vapes</h3><p>Meta was taking credit for 80% of revenue. It wasn't true. UTMs were dropping between landing pages and Shopify. I fixed the full funnel flow and aligned every platform.</p><div class="case-result">All platforms telling the same story</div></div>
+      <div class="case-item r"><div class="case-tag">Revenue Truth</div><h3>Gear Supply</h3><p>Ad dashboard looked great. Backend told a different story. I connected Meta attribution to real Shopify revenue and stopped the platform from inflating numbers.</p><div class="case-result">Revenue-driven campaign optimization</div></div>
+      <div class="case-item r"><div class="case-tag">Cross-Domain Tracking</div><h3>BehindTheChair.com</h3><p>Users explored content on one domain, purchased on another. No one knew which content drove sales. I built a custom tracking system using GTM + JavaScript + cookies.</p><div class="case-result">Content became measurable, not just creative</div></div>
+      <div class="case-item r"><div class="case-tag">Executive Reporting</div><h3>ThinkLouder</h3><p>Leadership needed to see the full picture, not 15 separate platform reports. I built a unified dashboard connecting all marketing channels to business KPIs.</p><div class="case-result">Actionable insights for quarterly decisions</div></div>
+      <div class="case-item r"><div class="case-tag">Hidden Attribution</div><h3>ThinkLouder</h3><p>The numbers looked fine on the surface. But deep analysis revealed hidden attribution problems that were silently draining ad spend.</p><div class="case-result">Data-driven reallocation saved budget</div></div>
       <div class="case-item r" style="display:flex;align-items:center;justify-content:center;text-align:center;background:var(--bg2)">
-        <div><h3 style="margin-bottom:8px">Need a custom analytics<br/>strategy for your brand?</h3><p style="font-size:12px;color:var(--mid);margin-bottom:14px">GA4, GTM, Looker Studio, and beyond.</p><a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="btn btn-fill" style="font-size:10px;padding:12px 24px">Let's Talk</a></div>
+        <div><h3 style="margin-bottom:8px;font-size:17px">Your tracking is probably broken too. Most brands don't know until it's too late.</h3><a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="btn btn-fill" style="font-size:10px;padding:12px 24px;margin-top:16px">Get a Free Tracking Audit</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="sec">
+<!-- CLIENT REVIEWS -->
+<section class="sec" id="reviews">
   <div class="container">
-    <div class="overline r">(05) Client Reviews</div>
-    <h2 class="sec-h r">4.8 on Upwork. <em>5-star reviews.</em></h2>
-    <div class="testi-wrap r" style="margin-bottom:24px">
-      <div class="testi-line"></div>
-      <div>
-        <blockquote>Working with Mikhil is a real pleasure. He is cooperative, diligent, and bright, with a great degree of patience and understanding. His knowledge and expertise in Google Analytics, Google Tag Manager, and Facebook Ads are exceptional. On multiple occasions, he has assisted us in overcoming challenging technical issues connected to GA4 and GTM and has found solutions in ways that others have not. Mikhil is an invaluable member of our team.</blockquote>
-        <div class="testi-name">GTM & Facebook Pixel Setup Client</div>
-        <div class="testi-role">Upwork ★★★★★ 5.0</div>
-      </div>
-    </div>
-    <div class="testi-wrap r" style="margin-bottom:24px">
-      <div class="testi-line"></div>
-      <div>
-        <blockquote>Mikhil's expertise in Google Analytics and GA4 has transformed our data strategy. His insights and implementation skills with Google Tag Manager and Google Ads are unparalleled. Highly recommended!</blockquote>
-        <div class="testi-name">GA4 & GTM Expert Client</div>
-        <div class="testi-role">Upwork ★★★★★ 5.0</div>
-      </div>
-    </div>
-    <div class="testi-wrap r" style="margin-bottom:24px">
-      <div class="testi-line"></div>
-      <div>
-        <blockquote>Mikhil has worked on analytics projects with data studio. He is very reliable and he improved our clients' dashboards. We hope to maintain a long-term collaboration with him.</blockquote>
-        <div class="testi-name">Google Analytics Reporting Client</div>
-        <div class="testi-role">Upwork ★★★★★ 5.0</div>
-      </div>
-    </div>
+    <div class="overline r">(05) What Clients Say</div>
+    <h2 class="sec-h r">4.4 on Upwork. 100% success rate. <em>Every project delivered.</em></h2>
+
     <div class="testi-wrap r">
       <div class="testi-line"></div>
       <div>
-        <blockquote>I have worked with Mikhil for about three years. He is a very experienced expert in Social Media Ads, Google Grants and Google Ads. He never stops learning. He is very involved in each project, suggests new ideas and always looks for ways to improve the results.</blockquote>
+        <blockquote>Working with Mikhil is a real pleasure. He is cooperative, diligent, and bright. His knowledge of Google Analytics, Google Tag Manager, and Facebook Ads is exceptional. On multiple occasions, he has found solutions to challenging GA4 and GTM issues in ways that others have not. An invaluable member of our team.</blockquote>
+        <div class="testi-name">GTM & Facebook Pixel Setup Client</div>
+        <div class="testi-role">Upwork &#9733;&#9733;&#9733;&#9733;&#9733; 5.0</div>
+      </div>
+    </div>
+
+    <div class="testi-wrap r">
+      <div class="testi-line"></div>
+      <div>
+        <blockquote>Mikhil's expertise in Google Analytics and GA4 has transformed our data strategy. His implementation skills with Google Tag Manager and Google Ads are unparalleled. Highly recommended!</blockquote>
+        <div class="testi-name">GA4 & GTM Expert Client</div>
+        <div class="testi-role">Upwork &#9733;&#9733;&#9733;&#9733;&#9733; 5.0</div>
+      </div>
+    </div>
+
+    <div class="testi-wrap r">
+      <div class="testi-line"></div>
+      <div>
+        <blockquote>Mikhil has worked on analytics projects with data studio. He is very reliable and he improved our clients' dashboards. We hope to maintain a long-term collaboration.</blockquote>
+        <div class="testi-name">Google Analytics Reporting Client</div>
+        <div class="testi-role">Upwork &#9733;&#9733;&#9733;&#9733;&#9733; 5.0</div>
+      </div>
+    </div>
+
+    <div class="testi-wrap r">
+      <div class="testi-line"></div>
+      <div>
+        <blockquote>I have worked with Mikhil for about three years. He is very experienced in Social Media Ads, Google Grants and Google Ads. He never stops learning. Very involved in each project, always looks for ways to improve results.</blockquote>
         <div class="testi-name">Maria Lapushkina</div>
         <div class="testi-role">LinkedIn Recommendation</div>
       </div>
@@ -333,35 +376,65 @@ footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:
 </section>
 
 <!-- SKILLS -->
-<section class="sec-sm sec-dark">
+<section class="sec-sm sec-dark" id="skills">
   <div class="container">
-    <div class="overline r">(06) Toolkit</div>
-    <h2 class="sec-h r">Expertise.</h2>
-    <div class="skills-wrap r">
-      <div class="skill-item">Google Analytics 4</div><div class="skill-item">Google Tag Manager</div><div class="skill-item">Server-Side Tracking</div><div class="skill-item">Meta CAPI</div><div class="skill-item">Facebook Ads</div><div class="skill-item">Google Ads</div><div class="skill-item">TikTok Pixel</div><div class="skill-item">Looker Studio</div><div class="skill-item">Tableau</div><div class="skill-item">Shopify / Shopify Plus</div><div class="skill-item">GoHighLevel</div><div class="skill-item">Matomo</div><div class="skill-item">Attribution Modeling</div><div class="skill-item">Cross-Domain Tracking</div><div class="skill-item">Zapier / Webhooks</div><div class="skill-item">Performance Marketing</div><div class="skill-item">Data Visualization</div><div class="skill-item">CRO</div><div class="skill-item">WordPress</div><div class="skill-item">React.js Tracking</div>
+    <div class="overline r">(06) The Stack</div>
+    <h2 class="sec-h r">Every tool in the tracking toolbox. <em>And a few the toolbox didn't know it needed.</em></h2>
+
+    <div class="skills-cats">
+      <div class="skills-cat r">
+        <div class="skills-cat-label">Tracking & Analytics</div>
+        <div class="skills-wrap">
+          <div class="skill-item">GA4</div><div class="skill-item">Google Tag Manager (Web + Server)</div><div class="skill-item">Meta Conversions API</div><div class="skill-item">TikTok Pixel</div><div class="skill-item">Matomo</div><div class="skill-item">Cross-Domain Tracking</div><div class="skill-item">Offline Conversion Tracking</div><div class="skill-item">Attribution Modeling</div>
+        </div>
+      </div>
+      <div class="skills-cat r">
+        <div class="skills-cat-label">Paid Media</div>
+        <div class="skills-wrap">
+          <div class="skill-item">Facebook Ads</div><div class="skill-item">Google Ads</div><div class="skill-item">Performance Marketing</div><div class="skill-item">Conversion Rate Optimization</div>
+        </div>
+      </div>
+      <div class="skills-cat r">
+        <div class="skills-cat-label">Dashboards & Reporting</div>
+        <div class="skills-wrap">
+          <div class="skill-item">Looker Studio</div><div class="skill-item">Tableau</div><div class="skill-item">Data Visualization</div><div class="skill-item">Executive Reporting</div>
+        </div>
+      </div>
+      <div class="skills-cat r">
+        <div class="skills-cat-label">Automation & Integration</div>
+        <div class="skills-wrap">
+          <div class="skill-item">Zapier</div><div class="skill-item">Make.com</div><div class="skill-item">n8n</div><div class="skill-item">Zoho Automation</div><div class="skill-item">Google Apps Scripts</div><div class="skill-item">Webhooks</div><div class="skill-item">Data Pipelines</div>
+        </div>
+      </div>
+      <div class="skills-cat r">
+        <div class="skills-cat-label">Platforms</div>
+        <div class="skills-wrap">
+          <div class="skill-item">Shopify / Shopify Plus</div><div class="skill-item">WordPress</div><div class="skill-item">React.js</div><div class="skill-item">GoHighLevel</div><div class="skill-item">Custom Builds</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-banner">
-  <h2 class="r">Your tracking is broken.<br/>Your dashboards aren't telling the truth.</h2>
-  <p class="r">Whether it's GA4 setup, GTM implementation, or a custom Looker Studio dashboard,<br/>get a tailored analytics strategy built for your business.</p>
-  <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="btn-white r">Get Your Free Analytics Audit</a>
+  <h2 class="r">Your tracking is broken. <br/>You just don't know it yet.</h2>
+  <p class="r">Whether it's GA4 acting up, Meta stealing credit, or dashboards that don't match reality, I've seen it all 300+ times. Book a free 30-minute consultation and I'll tell you exactly where your data is leaking.</p>
+  <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="btn-white r">Free 30mins Consultation</a>
 </div>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-split">
     <div class="contact-left">
-      <div class="overline r" style="margin-bottom:16px">(07) Get in Touch</div>
-      <h2 class="sec-h r" style="margin-top:0">Let's connect.</h2>
-      <p class="mid r">Need a custom-tailored analytics strategy for your brand? GA4 setup, GTM architecture, Looker Studio dashboards, or a full tracking rebuild. Let's talk.</p>
+      <div class="overline r" style="margin-bottom:16px">(07) Let's Fix Your Data</div>
+      <h2 class="sec-h r" style="margin-top:0">Every week you wait, your ad platforms learn the wrong lessons.</h2>
+      <p class="mid r">Whether you need a quick tracking audit, a full GA4 rebuild, or a custom Looker Studio dashboard that your team will actually use, let's talk.</p>
     </div>
     <div class="contact-right">
       <a href="https://calendly.com/mikhil-khattar-1/call" target="_blank" class="c-link r">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Book a Free Consultation
+        Free 30mins Consultation
       </a>
       <a href="https://www.linkedin.com/in/mikhil-khattar/" target="_blank" class="c-link r">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -376,54 +449,76 @@ footer{padding:28px 48px;display:flex;justify-content:space-between;align-items:
 </section>
 
 <footer>
-  <div>Mikhil Khattar © 2026</div>
+  <div>Mikhil Khattar &copy; 2026</div>
   <div>Marketing Analytics & Paid Media</div>
 </footer>
 
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-// PRELOADER
-(function(){
-  var tl=gsap.timeline();
-  tl.to('#preLine',{scaleX:1,duration:1.2,ease:'power2.inOut'})
-    .to('#preName',{opacity:1,duration:1,ease:'power2.out'},0.4)
-    .to('#preRole',{opacity:1,duration:0.8},0.8)
-    .to('#preLine',{scaleX:0,duration:0.6,ease:'power2.in'},'+=0.6')
-    .to(['#preName','#preRole'],{opacity:0,y:-20,duration:0.5},'<')
-    .to('#preloader',{opacity:0,duration:0.5,onComplete:function(){
-      document.getElementById('preloader').style.display='none';
-      enterHero();
-    }},'+=0.1');
-})();
+var preTl = gsap.timeline();
+preTl.to('#preLine', {scaleX:1, duration:1.2, ease:'power2.inOut'})
+  .to('#preName', {opacity:1, duration:1, ease:'power2.out'}, 0.4)
+  .to('#preRole', {opacity:1, duration:0.8}, 0.8)
+  .to('#preLine', {scaleX:0, duration:0.6, ease:'power2.in'}, '+=0.6')
+  .to(['#preName','#preRole'], {opacity:0, y:-20, duration:0.5}, '<')
+  .to('#preloader', {opacity:0, duration:0.5, onComplete:function(){
+    document.getElementById('preloader').style.display = 'none';
+    enterHero();
+  }}, '+=0.1');
 
-function enterHero(){
-  gsap.to('.hero-left .r',{opacity:1,y:0,duration:0.9,stagger:0.12,ease:'power2.out'});
-  gsap.to('.hero-right .r',{opacity:1,y:0,duration:1,delay:0.3,ease:'power2.out'});
-  // Counter animation
-  document.querySelectorAll('[data-count]').forEach(function(el){
-    var target=parseInt(el.getAttribute('data-count'));
-    gsap.to({val:0},{val:target,duration:2,delay:0.5,ease:'power2.out',onUpdate:function(){
-      el.textContent=Math.round(this.targets()[0].val)+'+';
-    }});
-  });
+function enterHero() {
+  gsap.to('.hero-left .r', {opacity:1, y:0, duration:0.9, stagger:0.12, ease:'power2.out'});
+  gsap.to('.hero-right .r', {opacity:1, y:0, duration:1, delay:0.3, ease:'power2.out'});
+  var counters = document.querySelectorAll('[data-count]');
+  for (var i = 0; i < counters.length; i++) {
+    (function(el) {
+      var target = parseInt(el.getAttribute('data-count'));
+      var obj = {val: 0};
+      gsap.to(obj, {
+        val: target,
+        duration: 2,
+        delay: 0.5,
+        ease: 'power2.out',
+        onUpdate: function() {
+          el.textContent = Math.round(obj.val) + '+';
+        }
+      });
+    })(counters[i]);
+  }
 }
 
-// SCROLL REVEALS
-ScrollTrigger.batch('.r:not(.hero-left .r):not(.hero-right .r)',{
-  onEnter:function(batch){gsap.to(batch,{opacity:1,y:0,duration:0.8,stagger:0.06,ease:'power2.out'});},
-  start:'top 88%',once:true
+ScrollTrigger.batch('.r:not(.hero-left .r):not(.hero-right .r)', {
+  onEnter: function(batch) {
+    gsap.to(batch, {opacity:1, y:0, duration:0.8, stagger:0.06, ease:'power2.out'});
+  },
+  start: 'top 90%',
+  once: true
 });
 
-// NAV
-window.addEventListener('scroll',function(){
-  var n=document.getElementById('navbar');
-  if(window.scrollY>60){n.classList.add('scrolled');}
-  else{n.classList.remove('scrolled');}
-},{passive:true});
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('navbar');
+  if (window.scrollY > 60) { n.classList.add('scrolled'); }
+  else { n.classList.remove('scrolled'); }
+}, {passive: true});
 
-// PARALLAX HERO TEXT
-gsap.to('.hero-right-text',{x:80,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
+gsap.to('.hero-right-text', {
+  x: 80,
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1
+  }
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    var t = document.querySelector(this.getAttribute('href'));
+    if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
 </script>
 </body>
 </html>
